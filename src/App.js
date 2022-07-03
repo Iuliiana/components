@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import { Homepage } from './pages/Homepage';
+import { StoreFunc } from './pages/Storefuncpage';
+import { StoreClass } from './pages/Storeclasspage';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ul className="nav justify-content-center">
+        <li className="nav-item">
+          <a className="nav-link" href="/">home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/store-class">store-class</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="/store-func">store-func</a>
+        </li>
+      </ul>
+      <Routes>
+        <Route path='*' element={<Homepage />} />
+        <Route path='/store-func' element={<StoreFunc />} />
+        <Route path='/store-class' element={<StoreClass />} />
+      </Routes>
+    </>
   );
 }
 
